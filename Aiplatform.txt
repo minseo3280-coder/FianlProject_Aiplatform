@@ -1,0 +1,26 @@
+final_project_aiplatform/
+├── .gitignore                # AI 전용 (.venv, pycache, 모델파일, data 제외)
+├── README.md                 # AI 서비스 통합 실행 가이드
+│
+├── backend-ai/               # [FastAPI] AI 추론 서버 (Serving)
+│   ├── .venv/                # FastAPI 전용 가상환경
+│   ├── app/                  # API 엔드포인트 및 라우터 (main.py)
+│   ├── core/                 # 모델 로드 및 이미지 전처리 로직
+│   ├── requirements.txt      # 서비스용 라이브러리 목록
+│   └── README.md             # FastAPI 실행 방법 (uvicorn 실행)
+│
+└── ai-engine/                # [Python] 모델 학습 및 연구 (Research)
+    ├── .venv/                # 학습용 가상환경 (Heavy 패키지)
+    ├── notebooks/            # Jupyter Notebook 분석 기록 (.ipynb)
+    ├── data/                 # 학습용 데이터셋 (Raw, Processed) - *Git 제외*
+    ├── models/               # 완료된 모델 저장소 (.pt, .h5) - *Git 제외*
+    ├── train.py              # YOLO 또는 딥러닝 학습 스크립트
+    ├── requirements.txt      # 학습용 라이브러리 목록 (Torch, Pandas 등)
+    └── README.md             # 학습 방법 가이드
+
+
+-- 버전 설치 --
+1. webApplication 폴더 내에 venv 생성 python -m venv .venv 
+2. venv activate  .\.venv\Scripts\activate
+3. pip install -r requirements.txt 터미널에서 실행
+
