@@ -1,26 +1,26 @@
 final_project_aiplatform/
-├── .gitignore                # AI 전용 (.venv, pycache, 모델파일, data 제외)
-├── README.md                 # AI 서비스 통합 실행 가이드
+├── .venv/                    # [통합 가상환경] 모든 하위 폴더가 이 환경을 공통으로 사용
+├── .gitignore                # 루트 .venv 및 데이터 파일 제외 설정
+├── requirements.txt          # [통합 라이브러리 목록] (FastAPI + YOLO + Camera 등 전부 포함)
+├── README.md                 # 전체 AI 프로젝트 가이드
 │
-├── backend-ai/               # [FastAPI] AI 추론 서버 (Serving)
-│   ├── .venv/                # FastAPI 전용 가상환경
-│   ├── app/                  # API 엔드포인트 및 라우터 (main.py)
-│   ├── core/                 # 모델 로드 및 이미지 전처리 로직
-│   ├── requirements.txt      # 서비스용 라이브러리 목록
-│   └── README.md             # FastAPI 실행 방법 (uvicorn 실행)
+├── backend-ai/               # [FastAPI] AI 서빙 서버
+│   ├── app/                  # main.py, routers
+│   ├── core/                 # AI 모델 로드 클래스
+│   └── README.md             # API 실행법
 │
-└── ai-engine/                # [Python] 모델 학습 및 연구 (Research)
-    ├── .venv/                # 학습용 가상환경 (Heavy 패키지)
-    ├── notebooks/            # Jupyter Notebook 분석 기록 (.ipynb)
-    ├── data/                 # 학습용 데이터셋 (Raw, Processed) - *Git 제외*
-    ├── models/               # 완료된 모델 저장소 (.pt, .h5) - *Git 제외*
-    ├── train.py              # YOLO 또는 딥러닝 학습 스크립트
-    ├── requirements.txt      # 학습용 라이브러리 목록 (Torch, Pandas 등)
-    └── README.md             # 학습 방법 가이드
-
+├── ai-engine/                # [Model Training] 모델 학습 및 연구
+│   ├── data/                 # 데이터셋 (Git 제외)
+│   ├── models/               # 학습된 모델 파일 (Git 제외)
+│   ├── notebooks/            # 주피터 노트북
+│   └── train.py              # 학습 스크립트
+│
+└── camera/                   # [Device] 카메라 제어 및 스트리밍
+    ├── capture.py            # 카메라 영상 캡처 스크립트
+    └── stream.py             # 영상 송출 로직
 
 -- 버전 설치 --
-1. webApplication 폴더 내에 venv 생성 python -m venv .venv 
+1. aiplatform 폴더 내에 venv 생성 python -m venv .venv 
 2. venv activate  .\.venv\Scripts\activate
 3. pip install -r requirements.txt 터미널에서 실행
 
